@@ -109,6 +109,8 @@ export function HomePage({ onNavigateToCourses, onNavigateToBluetooth }: HomePag
               href="#"
               className="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"
               aria-label="Facebook"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Facebook className="w-5 h-5" />
             </a>
@@ -116,20 +118,26 @@ export function HomePage({ onNavigateToCourses, onNavigateToBluetooth }: HomePag
               href="#"
               className="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center hover:bg-blue-400 hover:text-white transition-colors"
               aria-label="Twitter"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Twitter className="w-5 h-5" />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/am_ameyy/?hl=en"
               className="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center hover:bg-pink-600 hover:text-white transition-colors"
               aria-label="Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Instagram className="w-5 h-5" />
             </a>
             <a
-              href="#"
+              href="https://www.youtube.com/watch?v=hv_BQCMcWAo"
               className="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center hover:bg-red-600 hover:text-white transition-colors"
               aria-label="YouTube"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Youtube className="w-5 h-5" />
             </a>
