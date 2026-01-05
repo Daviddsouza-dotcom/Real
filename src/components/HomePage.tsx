@@ -12,7 +12,7 @@ export function HomePage({ onNavigateToCourses, onNavigateToBluetooth }: HomePag
         <header className="text-center mb-12 pt-8">
           <div className="flex items-center justify-center mb-6">
             <img
-              src="/linguavibe-logo.svg"
+              src="/linguavibe_-_logo.png"
               alt="LinguaVibe Logo"
               className="w-32 h-32 md:w-40 md:h-40"
             />
