@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Mic, MicOff, Bluetooth, Volume2, Award, TrendingUp } from 'lucide-react';
 import { Lesson } from '../lib/supabase';
 import { bluetoothManager } from '../lib/bluetooth';
+import { SoundVisualization } from './SoundVisualization';
+import { MouthPosition } from './MouthPosition';
+import { VibrationVisualizer } from './VibrationVisualizer';
 
 interface TrainPageProps {
   lesson: Lesson;
@@ -216,8 +219,8 @@ export function TrainPage({ lesson, onNavigateBack }: TrainPageProps) {
               </div>
             )}
 
-            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 border-2 border-blue-200">
-              <div className="flex items-center justify-between mb-6">
+            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 border-2 border-blue-200 space-y-8">
+              <div className="flex items-center justify-between mb-2">
                 <h2 className="text-lg font-bold text-slate-900">Sound Visualization</h2>
                 <div className="flex items-center gap-3">
                   <button
@@ -238,16 +241,28 @@ export function TrainPage({ lesson, onNavigateBack }: TrainPageProps) {
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl aspect-square flex items-center justify-center border-2 border-slate-200 mb-4">
-                <div className="text-center">
-                  <div className="text-9xl mb-6 animate-pulse">👄</div>
-                  <div className="text-5xl font-bold text-blue-600 mb-2">{lesson.phoneme}</div>
-                  <div className="text-slate-600">Watch mouth position carefully</div>
-                </div>
+              <div className="bg-white rounded-xl p-6 border-2 border-slate-200">
+                <SoundVisualization isActive={isListening} frequency={500} />
               </div>
 
-              <div className="flex items-center justify-between text-sm text-slate-600 px-2">
-                <span>Study the mouth movements</span>
+              <div className="bg-white rounded-xl p-6 border-2 border-slate-200 flex justify-center">
+                <MouthPosition
+                  category={lesson.vibration_pattern?.notes || 'Short Vowels'}
+                  phoneme={lesson.phoneme}
+                  isAnimating={isListening}
+                />
+              </div>
+
+              <div className="bg-white rounded-xl p-6 border-2 border-slate-200">
+                <VibrationVisualizer
+                  vibrationPattern={(lesson.vibration_pattern as any)?.pattern_code || 'M1(S)'}
+                  motors={lesson.vibration_pattern?.motors}
+                  isActive={isSendingPattern}
+                />
+              </div>
+
+              <div className="flex items-center justify-between text-sm text-slate-600">
+                <span>Visualizations update as you practice</span>
                 <span className="font-bold">Attempts: {attempts}</span>
               </div>
             </div>
