@@ -116,7 +116,11 @@ export class BluetoothManager {
 
     try {
       for (const motor of motors) {
-        const data = new Uint8Array([motor.M1, motor.M2, motor.M3, motor.M4, motor.duration & 0xFF, (motor.duration >> 8) & 0xFF]);
+        const jsonData = { s: [motor.M1, motor.M2, motor.M3, motor.M4, motor.duration] };
+        const jsonString = JSON.stringify(jsonData) + '\n';
+        const encoder = new TextEncoder();
+        const data = encoder.encode(jsonString);
+
         await this.characteristic.writeValue(data);
         await new Promise(resolve => setTimeout(resolve, motor.duration));
       }
@@ -147,7 +151,7 @@ export class BluetoothManager {
   }
 
   async testVibration(): Promise<void> {
-    const testPattern = [{M1: 200, M2: 100, M3: 200, M4: 100, duration: 200}];
+    const testPattern = [{M1: 200, M2: 100, M3: 200, M4: 100, duration: 4000}];
     await this.send4MotorPattern(testPattern);
   }
 }
