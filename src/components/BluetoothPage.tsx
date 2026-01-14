@@ -289,16 +289,32 @@ export function BluetoothPage({ onNavigateBack }: BluetoothPageProps) {
           </div>
         </div>
 
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-6">
           <div className="flex items-start">
             <AlertCircle className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
             <div className="text-sm text-blue-900">
               <p className="font-semibold mb-2">Requirements</p>
               <ul className="space-y-1 text-blue-800">
-                <li>• Your ESP32 must be running compatible firmware with the correct UUIDs</li>
+                <li>• Your ESP32 must be powered on and running BluetoothSerial firmware</li>
                 <li>• Use Chrome, Edge, or Opera browser (Firefox and Safari don't support Web Bluetooth)</li>
                 <li>• Bluetooth must be enabled on your computer or device</li>
-                <li>• The ESP32 device name should start with "ESP32" or "ESP"</li>
+                <li>• The ESP32 device name should be "ESP_LinguaVibeGlove" or start with "ESP"</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-6">
+          <div className="flex items-start">
+            <AlertCircle className="w-5 h-5 text-amber-600 mr-3 flex-shrink-0 mt-0.5" />
+            <div className="text-sm text-amber-900">
+              <p className="font-semibold mb-2">Troubleshooting</p>
+              <ul className="space-y-1 text-amber-800">
+                <li>• If no devices are found, ensure your ESP32 is powered on</li>
+                <li>• Check that the ESP32 Bluetooth is enabled in the firmware</li>
+                <li>• Make sure your browser has permission to access Bluetooth</li>
+                <li>• Try refreshing the page and scanning again</li>
+                <li>• Open your browser's developer console (F12) to check for error messages</li>
               </ul>
             </div>
           </div>

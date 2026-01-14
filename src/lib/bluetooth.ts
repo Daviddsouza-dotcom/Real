@@ -30,10 +30,10 @@ export class BluetoothManager {
     try {
       const device = await navigator.bluetooth.requestDevice({
         filters: [
-          { namePrefix: 'ESP32' },
-          { namePrefix: 'ESP' }
+          { namePrefix: 'ESP' },
+          { name: 'ESP_LinguaVibeGlove' }
         ],
-        optionalServices: [SERVICE_UUID]
+        optionalServices: [SERVICE_UUID, '0000ffff-0000-1000-8000-00805f9b34fb']
       });
 
       return device;
@@ -49,8 +49,25 @@ export class BluetoothManager {
       }
 
       const server = await device.gatt.connect();
-      const service = await server.getPrimaryService(SERVICE_UUID);
-      const characteristic = await service.getCharacteristic(CHARACTERISTIC_UUID);
+
+      let service: BluetoothRemoteGATTService;
+      let characteristic: BluetoothRemoteGATTCharacteristic;
+
+      try {
+        service = await server.getPrimaryService(SERVICE_UUID);
+        characteristic = await service.getCharacteristic(CHARACTERISTIC_UUID);
+      } catch (e) {
+        const services = await server.getPrimaryServices();
+        if (services.length === 0) {
+          throw new Error('No services found on device');
+        }
+        service = services[0];
+        const characteristics = await service.getCharacteristics();
+        if (characteristics.length === 0) {
+          throw new Error('No characteristics found in service');
+        }
+        characteristic = characteristics[0];
+      }
 
       this.device = device;
       this.characteristic = characteristic;
