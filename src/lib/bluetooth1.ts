@@ -27,5 +27,6 @@ export class BluetoothManager1 {
       throw new Error(`Failed to send motor pattern: ${(error as Error).message}`);
     }
   }
+}
 
 export const bluetoothManager1 = new BluetoothManager1();
