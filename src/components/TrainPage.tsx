@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Mic, MicOff, Bluetooth, Volume2, Award, TrendingUp } from 'lucide-react';
 import { Lesson } from '../lib/supabase';
-import { bluetoothManager } from '../lib/bluetooth';
+import { bluetoothManager1 } from '../lib/bluetooth1';
 
 interface TrainPageProps {
   lesson: Lesson;
@@ -20,18 +20,18 @@ export function TrainPage({ lesson, onNavigateBack }: TrainPageProps) {
   const [isListening, setIsListening] = useState(false);
   const [feedbackState, setFeedbackState] = useState<FeedbackState>('idle');
   const [feedbackData, setFeedbackData] = useState<FeedbackData | null>(null);
-  const [isBluetoothConnected, setIsBluetoothConnected] = useState(false);
+  //const [isBluetoothConnected, setIsBluetoothConnected] = useState(false);
   const [attempts, setAttempts] = useState(0);
-  const [connectionError, setConnectionError] = useState<string>('');
-  const [isSendingPattern, setIsSendingPattern] = useState(false);
+  //const [connectionError, setConnectionError] = useState<string>('');
+  const [isSendingPattern, setIsSendingPattern] = useState(true);
   const recognitionRef = useRef<any>(null);
 
   useEffect(() => {
-    setIsBluetoothConnected(bluetoothManager.isConnected());
+  //  setIsBluetoothConnected(bluetoothManager.isConnected());
 
-    bluetoothManager.setConnectionChangeCallback((connected) => {
-      setIsBluetoothConnected(connected);
-    });
+  //  bluetoothManager.setConnectionChangeCallback((connected) => {
+  //    setIsBluetoothConnected(connected);
+  //  });
 
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
       const SpeechRecognition = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition;
@@ -57,25 +57,32 @@ export function TrainPage({ lesson, onNavigateBack }: TrainPageProps) {
 
     return () => {
       if (recognitionRef.current) {
-        recognitionRef.current.stop();
+        recognitionRef.current.stop();v
       }
     };
   }, [lesson]);
 
   //New short function added for sendVibrationPattern through flask
   async function sendVibrationPattern() {
-    const motors = getMotorPattern(); 
+    //const motors = getMotorPattern(); 
     // motors = [p1, p2, p3, p4, duration]
-
-    try {
-      await sendVibration(motors);
+	
+	setIsSendingPattern(true);
+	
+	try{
+	
+	  const pattern = lesson.vibration_pattern as any;
+      const motors = Array.isArray(pattern.motors) ? pattern.motors : [pattern.motors];
+	  
+      await bluetoothManager1.send4MotorPattern(motors);
+	  
     } catch (err) {
       console.error(err);
       alert("LinguaVibe service is not running. Please start it.");
     }
   }
   
-  async function sendVibrationPattern_old() {
+  /*async function sendVibrationPattern_old() {
     setConnectionError('');
     setIsSendingPattern(true);
 
@@ -96,7 +103,7 @@ export function TrainPage({ lesson, onNavigateBack }: TrainPageProps) {
     } finally {
       setIsSendingPattern(false);
     }
-  }
+  }*/
 
   function startListening() {
     if (!recognitionRef.current) {
