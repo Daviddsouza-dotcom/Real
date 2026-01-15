@@ -3,7 +3,7 @@ import { HomePage } from './components/HomePage';
 import { CoursePage } from './components/CoursePage';
 
 
-import { TrainPage } from './components/TrainPage1';
+import { TrainPage1 } from './components/TrainPage1';
 
 import { BluetoothPage } from './components/BluetoothPage';
 import { Lesson } from './lib/supabase';
