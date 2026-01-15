@@ -3,6 +3,9 @@ import { ArrowLeft, Mic, MicOff, Bluetooth, Volume2, Award, TrendingUp } from 'l
 import { Lesson } from '../lib/supabase';
 import { bluetoothManager } from '../lib/bluetooth';
 
+//this line added for quick bluetooth send vibration
+import { sendVibration } from "../lib/bluetooth";
+
 interface TrainPageProps {
   lesson: Lesson;
   onNavigateBack: () => void;
@@ -62,7 +65,20 @@ export function TrainPage({ lesson, onNavigateBack }: TrainPageProps) {
     };
   }, [lesson]);
 
+  //New short function added for sendVibrationPattern through flask
   async function sendVibrationPattern() {
+    const motors = getMotorPattern(); 
+    // motors = [p1, p2, p3, p4, duration]
+
+    try {
+      await sendVibration(motors);
+    } catch (err) {
+      console.error(err);
+      alert("LinguaVibe service is not running. Please start it.");
+    }
+  }
+  
+  async function sendVibrationPattern_old() {
     setConnectionError('');
     setIsSendingPattern(true);
 
