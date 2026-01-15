@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { sendVibration } from "../lib/bluetooth";
+import { sendVibration } from "../lib/bluetooth1";
 
 const TrainPage1: React.FC = () => {
   // Motor intensities: 0–255
