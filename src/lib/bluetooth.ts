@@ -1,15 +1,3 @@
-export async function sendVibration(pattern: number[]) {
-  const res = await fetch("http://127.0.0.1:5000/vibrate", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ s: pattern })
-  });
-
-  if (!res.ok) {
-    throw new Error("LinguaVibe service not running");
-  }
-}
-
 export interface BluetoothDeviceInfo {
   id: string;
   name: string;
