@@ -52,40 +52,40 @@ BEGIN
   -- A. VOWELS (12 phonemes)
   INSERT INTO lessons (course_id, title, phoneme, animation_url, vibration_pattern, order_index) VALUES
   (course1_id, 'High Front Vowel: see', '/iː/', '/animations/phoneme-ee.json', 
-   '{"motors": [{"M1": 50, "M2": 50, "M3": 50, "M4": 50, "duration": 200}], "notes": "High front vowel, short pulse"}'::jsonb, 1),
+   '{"motors": [{"M1": 50, "M2": 50, "M3": 50, "M4": 50, "duration": 2000}], "notes": "High front vowel, short pulse"}'::jsonb, 1),
   
   (course1_id, 'Short Front Vowel: sit', '/ɪ/', '/animations/phoneme-i.json',
-   '{"motors": [{"M1": 50, "M2": 50, "M3": 30, "M4": 30, "duration": 150}], "notes": "Shorter duration"}'::jsonb, 2),
+   '{"motors": [{"M1": 50, "M2": 50, "M3": 30, "M4": 30, "duration": 1500}], "notes": "Shorter duration"}'::jsonb, 2),
   
   (course1_id, 'Mid Front Vowel: bed', '/e/', '/animations/phoneme-e.json',
-   '{"motors": [{"M1": 100, "M2": 100, "M3": 0, "M4": 0, "duration": 180}], "notes": "Mid front vowel"}'::jsonb, 3),
+   '{"motors": [{"M1": 100, "M2": 100, "M3": 0, "M4": 0, "duration": 1800}], "notes": "Mid front vowel"}'::jsonb, 3),
   
   (course1_id, 'Front Open Vowel: cat', '/æ/', '/animations/phoneme-ae.json',
-   '{"motors": [{"M1": 150, "M2": 50, "M3": 0, "M4": 0, "duration": 200}], "notes": "Front-open, strong M1"}'::jsonb, 4),
+   '{"motors": [{"M1": 150, "M2": 50, "M3": 0, "M4": 0, "duration": 2000}], "notes": "Front-open, strong M1"}'::jsonb, 4),
   
   (course1_id, 'Back Vowel: car', '/ɑː/', '/animations/phoneme-ah.json',
-   '{"motors": [{"M1": 200, "M2": 0, "M3": 200, "M4": 0, "duration": 250}], "notes": "Back vowel, alternating M1/M3"}'::jsonb, 5),
+   '{"motors": [{"M1": 200, "M2": 0, "M3": 200, "M4": 0, "duration": 2500}], "notes": "Back vowel, alternating M1/M3"}'::jsonb, 5),
   
   (course1_id, 'Rounded Back Vowel: hot', '/ɒ/', '/animations/phoneme-o.json',
-   '{"motors": [{"M1": 150, "M2": 0, "M3": 100, "M4": 0, "duration": 180}], "notes": "Rounded back vowel"}'::jsonb, 6),
+   '{"motors": [{"M1": 150, "M2": 0, "M3": 100, "M4": 0, "duration": 1800}], "notes": "Rounded back vowel"}'::jsonb, 6),
   
   (course1_id, 'Long Back Vowel: saw', '/ɔː/', '/animations/phoneme-aw.json',
-   '{"motors": [{"M1": 200, "M2": 0, "M3": 200, "M4": 50, "duration": 250}], "notes": "Long back vowel"}'::jsonb, 7),
+   '{"motors": [{"M1": 200, "M2": 0, "M3": 200, "M4": 50, "duration": 2500}], "notes": "Long back vowel"}'::jsonb, 7),
   
   (course1_id, 'Short Back Rounded: put', '/ʊ/', '/animations/phoneme-oo.json',
-   '{"motors": [{"M1": 50, "M2": 50, "M3": 100, "M4": 100, "duration": 150}], "notes": "Short back rounded"}'::jsonb, 8),
+   '{"motors": [{"M1": 50, "M2": 50, "M3": 100, "M4": 100, "duration": 1500}], "notes": "Short back rounded"}'::jsonb, 8),
   
   (course1_id, 'Long Back Rounded: blue', '/uː/', '/animations/phoneme-ue.json',
-   '{"motors": [{"M1": 200, "M2": 50, "M3": 200, "M4": 50, "duration": 250}], "notes": "Long back rounded"}'::jsonb, 9),
+   '{"motors": [{"M1": 200, "M2": 50, "M3": 200, "M4": 50, "duration": 2500}], "notes": "Long back rounded"}'::jsonb, 9),
   
   (course1_id, 'Central Vowel: cup', '/ʌ/', '/animations/phoneme-uh.json',
-   '{"motors": [{"M1": 100, "M2": 0, "M3": 50, "M4": 0, "duration": 180}], "notes": "Central vowel"}'::jsonb, 10),
+   '{"motors": [{"M1": 100, "M2": 0, "M3": 50, "M4": 0, "duration": 1800}], "notes": "Central vowel"}'::jsonb, 10),
   
   (course1_id, 'Mid-Central: bird', '/ɜː/', '/animations/phoneme-er.json',
-   '{"motors": [{"M1": 100, "M2": 50, "M3": 100, "M4": 50, "duration": 220}], "notes": "Mid-central"}'::jsonb, 11),
+   '{"motors": [{"M1": 100, "M2": 50, "M3": 100, "M4": 50, "duration": 2200}], "notes": "Mid-central"}'::jsonb, 11),
   
   (course1_id, 'Schwa: about', '/ə/', '/animations/phoneme-schwa.json',
-   '{"motors": [{"M1": 50, "M2": 0, "M3": 50, "M4": 0, "duration": 100}], "notes": "Schwa, short pulse"}'::jsonb, 12);
+   '{"motors": [{"M1": 50, "M2": 0, "M3": 50, "M4": 0, "duration": 1000}], "notes": "Schwa, short pulse"}'::jsonb, 12);
   
   -- B. CONSONANTS - Plosives (6 phonemes)
   INSERT INTO lessons (course_id, title, phoneme, animation_url, vibration_pattern, order_index) VALUES
