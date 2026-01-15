@@ -18,8 +18,13 @@ export class BluetoothManager1 {
            headers: { "Content-Type": "application/json" },
            body: data });
 	  }
-	} if (!response.ok) {
-      throw new Error("LinguaVibe service not running");
+	  
+	  if (!response.ok) {
+        throw new Error("LinguaVibe service not running");
+      }
+	
+	} catch(error) {
+      throw new Error(`Failed to send motor pattern: ${(error as Error).message}`);
     }
   }
 
