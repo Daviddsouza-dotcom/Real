@@ -114,7 +114,7 @@ export function TrainPage({ lesson, onNavigateBack }: TrainPageProps) {
     setFeedbackState('listening');
     setIsListening(true);
     setFeedbackData(null);
-    setConnectionError('');
+    //setConnectionError('');
 
     recognitionRef.current.start();
   }
