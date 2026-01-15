@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { HomePage } from './components/HomePage';
 import { CoursePage } from './components/CoursePage';
-//import { TrainPage } from './components/TrainPage';
+
 
 import { TrainPage } from './components/TrainPage1';
 
