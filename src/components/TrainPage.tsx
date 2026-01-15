@@ -3,9 +3,6 @@ import { ArrowLeft, Mic, MicOff, Bluetooth, Volume2, Award, TrendingUp } from 'l
 import { Lesson } from '../lib/supabase';
 import { bluetoothManager } from '../lib/bluetooth';
 
-//this line added for quick bluetooth send vibration
-import { sendVibration } from "../lib/bluetooth";
-
 interface TrainPageProps {
   lesson: Lesson;
   onNavigateBack: () => void;
