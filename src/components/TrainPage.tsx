@@ -22,7 +22,7 @@ export function TrainPage({ lesson, onNavigateBack }: TrainPageProps) {
   const [feedbackData, setFeedbackData] = useState<FeedbackData | null>(null);
   //const [isBluetoothConnected, setIsBluetoothConnected] = useState(false);
   const [attempts, setAttempts] = useState(0);
-  //const [connectionError, setConnectionError] = useState<string>('');
+  const [connectionError, setConnectionError] = useState<string>('');
   const [isSendingPattern, setIsSendingPattern] = useState(true);
   const recognitionRef = useRef<any>(null);
 
