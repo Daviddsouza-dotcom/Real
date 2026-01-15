@@ -3,7 +3,7 @@ import { HomePage } from './components/HomePage';
 import { CoursePage } from './components/CoursePage';
 
 
-import { TrainPage1 } from './components/TrainPage1';
+import { TrainPage } from './components/TrainPage';
 
 import { BluetoothPage } from './components/BluetoothPage';
 import { Lesson } from './lib/supabase';
@@ -34,7 +34,7 @@ function App() {
         />
       )}
       {currentPage === 'train' && selectedLesson && (
-        <TrainPage1
+        <TrainPage
           lesson={selectedLesson}
           onNavigateBack={() => setCurrentPage('courses')}
         />
